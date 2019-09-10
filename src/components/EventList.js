@@ -2566,6 +2566,11 @@ class EventList extends Component {
       <div>
         {this.state.events ? (
           <div>
+            <TextField style={{padding: 24}}
+          id="searchs"
+          placeholder="Check out an event"
+          margin="normal"
+        />
             <Grid container spacing={24} style={{ padding: 40 }}>
               {this.state.events.map(singleEvent => (
                 <Grid  style={{ padding: 20 }} item xs={6} sm={4} lg={3} xl={1}>
