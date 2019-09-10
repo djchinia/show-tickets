@@ -2570,10 +2570,13 @@ class EventList extends Component {
           id="searchs"
           placeholder="Check out an event"
           margin="normal"
+          inputProps={{
+            style: { textAlign: "center" }
+          }}
         />
             <Grid container spacing={24} style={{ padding: 40 }}>
               {this.state.events.map(singleEvent => (
-                <Grid  style={{ padding: 20 }} item xs={6} sm={4} lg={3} xl={1}>
+                <Grid  style={{ padding: 20 }} item xs={12} sm={6} lg={4} xl={1}>
                   <Event event={singleEvent} />
                 </Grid>
               ))}
