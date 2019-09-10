@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import { Grid, TextField, Select, MenuItem } from '@material-ui/core';
+import { Grid, Select, MenuItem } from '@material-ui/core';
 import Event from './Event';
 import venueListMaker from '../utils/venueListMaker';
 import venueObjFilter from '../utils/venueObjFilter';
+import json from '../utils/eventlist';
+
+const allEvents = json['Items'];
 
 class EventList extends Component {
   constructor() {
     super();
     this.state = {
-      events: [],
+      events: allEvents,
       selectedCity: '',
       inputStr: '',
     };
@@ -35,7 +38,7 @@ class EventList extends Component {
             </Select>
             <Grid container style={{ padding: 40 }}>
               {this.state.events.map(singleEvent => (
-                <Grid style={{ padding: 20 }} item xs={12} sm={6} lg={4} xl={1}>
+                <Grid style={{ padding: 20 }} item xs={12} sm={6} lg={4} xl={3}>
                   <Event event={singleEvent} />
                 </Grid>
               ))}
