@@ -5,7 +5,7 @@ import {
   CardActions,
   CardContent,
   Typography,
-  CardMedia,
+  // CardMedia,
 } from '@material-ui/core';
 
 const Event = props => {
@@ -14,15 +14,12 @@ const Event = props => {
     <div>
       {props.event && (
         <Card>
-          <CardMedia
+          {/* <CardMedia
             style={{ height: 0, paddingTop: '70%' }}
             image="https://img.vggcdn.net/img/cat/4508/1/37.jpg"
-            title={props.event.EventName}
-          />
+          /> */}
           <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
-              {props.event.EventName}
-            </Typography>
+            <Typography component="h2">{props.event.EventName}</Typography>
             <Typography component="p">{props.event.VenueCity}</Typography>
             <Typography component="p">{props.event.VenueName} </Typography>
             <Typography component="p">
