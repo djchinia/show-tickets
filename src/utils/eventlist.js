@@ -1,4 +1,4 @@
-{
+const json = {
     "Items": [{
         "EventId": 2566910,
         "Day": "Sun",
@@ -2550,4 +2550,6 @@
         "OnSaleSinceMessage": null,
         "FriendlyEventCountdownMessage": null
     }]
-}
+};
+
+export default json
