@@ -33,7 +33,6 @@ class EventList extends Component {
 
   render() {
     const venueList = cityLister(json['Items']);
-    console.log(venueList);
     return (
       <div>
         {this.state.events ? (
@@ -58,14 +57,24 @@ class EventList extends Component {
                     <em>All Cities</em>
                   </MenuItem>
                   {venueList.map(singleCity => (
-                    <MenuItem value={singleCity}>{singleCity}</MenuItem>
+                    <MenuItem value={singleCity} key={singleCity}>
+                      {singleCity}
+                    </MenuItem>
                   ))}
                 </Select>
               </FormControl>
             </form>
             <Grid container style={{ padding: 40 }}>
               {this.state.events.map(singleEvent => (
-                <Grid style={{ padding: 20 }} item xs={12} sm={6} lg={4} xl={3}>
+                <Grid
+                  style={{ padding: 20 }}
+                  item
+                  xs={12}
+                  sm={6}
+                  lg={4}
+                  xl={3}
+                  key={singleEvent.EventId}
+                >
                   <Event event={singleEvent} />
                 </Grid>
               ))}
