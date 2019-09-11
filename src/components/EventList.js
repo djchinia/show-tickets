@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Select, MenuItem, FormControl, Button } from '@material-ui/core';
 import Event from './Event';
-import venueListMaker from '../utils/venueListMaker';
-import cityFilter from '../utils/cityFilter';
+import { cityFilter, cityLister } from '../utils/functions';
 import json from '../utils/eventlist';
 
 class EventList extends Component {
@@ -20,7 +19,7 @@ class EventList extends Component {
 
   handleChange(event) {
     event.preventDefault();
-    const selectedEvent = cityFilter(event.target.value);
+    const selectedEvent = cityFilter(json['Items'], event.target.value);
     this.setState({ selectedCity: event.target.value, events: selectedEvent });
   }
 
@@ -33,7 +32,7 @@ class EventList extends Component {
   }
 
   render() {
-    const venueList = venueListMaker();
+    const venueList = cityLister(json['Items']);
     console.log(venueList);
     return (
       <div>
