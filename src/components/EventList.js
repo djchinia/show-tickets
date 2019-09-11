@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Select, MenuItem, FormControl, Button } from '@material-ui/core';
 import Event from './Event';
 import venueListMaker from '../utils/venueListMaker';
-import venueObjFilter from '../utils/venueObjFilter';
+import cityFilter from '../utils/cityFilter';
 import json from '../utils/eventlist';
 
 class EventList extends Component {
@@ -10,8 +10,7 @@ class EventList extends Component {
     super();
     this.state = {
       events: json['Items'], // initialize with all events
-      city: '',
-      inputStr: '',
+      selectedCity: '',
       open: false,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -20,7 +19,9 @@ class EventList extends Component {
   }
 
   handleChange(event) {
-    this.setState({ city: event.target.value });
+    event.preventDefault();
+    const selectedEvent = cityFilter(event.target.value);
+    this.setState({ selectedCity: event.target.value, events: selectedEvent });
   }
 
   handleClose() {
@@ -32,9 +33,8 @@ class EventList extends Component {
   }
 
   render() {
-    console.log(venueObjFilter('Houston'));
     const venueList = venueListMaker();
-
+    console.log(venueList);
     return (
       <div>
         {this.state.events ? (
@@ -48,7 +48,7 @@ class EventList extends Component {
                   open={this.state.open}
                   onClose={this.handleClose}
                   onOpen={this.handleOpen}
-                  value={this.state.city}
+                  value={this.state.selectedCity}
                   onChange={this.handleChange}
                   inputProps={{
                     name: 'city',
@@ -56,7 +56,7 @@ class EventList extends Component {
                   }}
                 >
                   <MenuItem value="">
-                    <em>None</em>
+                    <em>All Cities</em>
                   </MenuItem>
                   {venueList.map(singleCity => (
                     <MenuItem value={singleCity}>{singleCity}</MenuItem>
