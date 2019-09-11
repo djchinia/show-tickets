@@ -10,7 +10,7 @@ import {
 
 const Event = props => {
   return (
-    <div>
+    <div key={props.event.EventId}>
       {props.event && (
         <Card>
           {/* <CardMedia
@@ -18,7 +18,7 @@ const Event = props => {
             image="https://img.vggcdn.net/img/cat/4508/1/37.jpg"
           /> */}
           <CardContent>
-            <Typography variant="p">
+            <Typography component="p">
               {props.event.EventName} - {props.event.VenueCity}
             </Typography>
             <Typography component="p">{props.event.VenueName} </Typography>
