@@ -2,14 +2,17 @@ import json from './eventlist';
 
 const event = json['Items'];
 
-const venueObjFilter = cityName => {
-  const newItems = [];
+const cityFilter = cityName => {
+  let newItems = [];
   for (let i = 0; i < event.length; i++) {
     if (cityName === event[i]['VenueCity']) {
       newItems.push(event[i]);
+    }
+    if (cityName === '') {
+      newItems = json['Items'];
     }
   }
   return newItems;
 };
 
-export default venueObjFilter;
+export default cityFilter;
