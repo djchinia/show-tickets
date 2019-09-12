@@ -1,7 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Once the file has been cloned, "npm start" to view on localhost 3000. I have sent a geocodeKey.js, which belongs in the src/utils file. 
----
 
 Part 1: Currently, the artist’s name, city, venue, and date are all listed. 
 
