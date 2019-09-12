@@ -1,4 +1,5 @@
 import axios from 'axios';
+import geocodeKey from './geocodeKey';
 
 const geocode = async () => {
   try {
@@ -8,7 +9,7 @@ const geocode = async () => {
       {
         params: {
           address: formattedLocation,
-          key: 'AIzaSyB9AwifbsqM65PAbTYG43L8P423yiTOO6A',
+          key: geocodeKey,
         },
       }
     );
