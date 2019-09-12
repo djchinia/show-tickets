@@ -1,12 +1,12 @@
 export const cityLister = eventlistItem => {
-  const venueList = [];
+  const cityList = [];
   for (let i = 0; i < eventlistItem.length; i++) {
-    if (!venueList.includes(eventlistItem[i]['VenueCity'])) {
-      venueList.push(eventlistItem[i]['VenueCity']);
+    if (!cityList.includes(eventlistItem[i]['VenueCity'])) {
+      cityList.push(eventlistItem[i]['VenueCity']);
     }
   }
-  venueList.sort();
-  return venueList;
+  cityList.sort();
+  return cityList;
 };
 
 export const cityFilter = (eventlistItem, cityName) => {

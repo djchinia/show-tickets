@@ -3,6 +3,7 @@ import { Grid, Select, MenuItem, FormControl, Button } from '@material-ui/core';
 import Event from './Event';
 import { cityFilter, cityLister } from '../utils/functions';
 import json from '../utils/eventlist';
+import geocode from '../utils/geocode';
 
 class EventList extends Component {
   constructor() {
@@ -33,6 +34,7 @@ class EventList extends Component {
 
   render() {
     const venueList = cityLister(json['Items']);
+    console.log(geocode());
     return (
       <div>
         {this.state.events ? (
