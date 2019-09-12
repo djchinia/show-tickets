@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Select, MenuItem, FormControl, Button } from '@material-ui/core';
 import Event from './Event';
-import { cityFilter, cityLister } from '../utils/functions';
+import { cityFilter, cityLister, geocode } from '../utils/functions';
 import json from '../utils/eventlist';
-import geocode from '../utils/geocode';
 
 class EventList extends Component {
   constructor() {
